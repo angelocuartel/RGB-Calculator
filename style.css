@@ -1,0 +1,33 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    font-family: 'roboto';
+}
+
+
+.container{
+    max-width: 30%;
+    border: 1px solid red;
+
+    margin:auto;
+    margin-top:150px;
+
+}
+
+button{
+    padding: 20px 50px 20px 50px;
+    border:none;
+    background-color: #303030;
+    margin-bottom: 3px;
+    color:white;
+    font-weight: 100;
+    font-size: 20px;
+    
+}
+
+input{
+    width: 100%;
+    padding: 15px;
+    text-align: right;
+}
