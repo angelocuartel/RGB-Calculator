@@ -7,8 +7,9 @@ btns.forEach(element => {
     element.addEventListener("click",function(e){
          if(element.innerText == "C")
         inpt.value = '';
+
         else if(element.innerText == ".")
-        inpt.value += sanitizeDot(inpt.value);
+        inpt.value += sanitizeSymbol(inpt.value);
 
         else if(element.innerText == "="){
             inpt.value = eval(inpt.value);
@@ -16,7 +17,7 @@ btns.forEach(element => {
         }
         
 
-        else if(element.innerText != "<")
+        else if(element.innerText != "<--")
             inpt.value += element.innerText;
 
     
@@ -35,5 +36,5 @@ function removeNum(input){
 }
 
 function sanitizeSymbol(input){
-    return (!input.includes('.')) && input.length > 0 ? '.' : '';
+    return (!input.includes(".")) && input.length > 0 ? "." : '';
 }
