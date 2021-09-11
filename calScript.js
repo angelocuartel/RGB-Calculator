@@ -5,8 +5,11 @@ const inpt = document.getElementById("text-box");
 
 btns.forEach(element => {
     element.addEventListener("click",function(e){
-        if(element.innerText != "<")
+         if(element.innerText == "C")
+        inpt.value = '';
+        else if(element.innerText != "<")
        inpt.value += element.innerText;
+      
        else
        inpt.value = removeNum(inpt.value);
        
@@ -14,6 +17,8 @@ btns.forEach(element => {
 });
 
 
-function removeNum(number){
-    return number.length > 0 ? number.substr(0,number.length-1) : number ;
+
+
+function removeNum(input){
+    return input.length > 0 ? input.substr(0,input.length-1) : input ;
 }
