@@ -12,14 +12,14 @@ btns.forEach(element => {
         else if(element.innerText == "." && !hasLeftSideOp(element.innerHTML))
         inpt.value += sanitizeSymbol(inpt.value);
 
-        else if(element.innerText == "="){
+        else if(!hasNoNumber(inpt.value) && element.innerText == "="){
             inpt.value = eval(inpt.value);
 
         }
         
 
         else if(!hasLeftSideOp(element.innerText)  && element.innerText != "<--")
-            inpt.value += element.innerText;
+            inpt.value += element.innerText.replace('=','');
 
     
        
@@ -38,8 +38,10 @@ function hasLeftSideOp(op){
 }
 
 function hasNoNumber(input){
-    return input == null ;
+    return input == '' ;
 }
+
+
 
 function removeNum(input){
     return input.length > 0 ? input.substr(0,input.length-1) : input ;
