@@ -4,11 +4,12 @@ const inpt = document.getElementById("text-box");
 
 
 btns.forEach(element => {
-    element.addEventListener("click",function(e){
+    element.addEventListener("click",(e) => {
+
          if(element.innerText == "C")
         inpt.value = '';
 
-        else if(element.innerText == ".")
+        else if(element.innerText == "." && !hasLeftSideOp(element.innerHTML))
         inpt.value += sanitizeSymbol(inpt.value);
 
         else if(element.innerText == "="){
@@ -17,21 +18,23 @@ btns.forEach(element => {
         }
         
 
-        else if(element.innerText != "<--")
+        else if(!hasLeftSideOp(element.innerText)  && element.innerText != "<--")
             inpt.value += element.innerText;
 
     
        
-       else
-       inpt.value = removeNum(inpt.value);
+      
        
     })
 });
 
 
-function hasRightSideOp(input){
-    const ops = ['+','-','*','/'];
-    return ops.includes(input[input.length-1]);
+
+function hasLeftSideOp(op){
+
+    const ops =['-','*','/','+','.'];
+
+    return ops.includes(inpt.value[inpt.value.length-1]) && ops.includes(op) ;
 }
 
 function hasNoNumber(input){
