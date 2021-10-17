@@ -21,7 +21,9 @@ btns.forEach(element => {
         else if(!hasLeftSideOp(element.innerText)  && element.innerText != "<--")
             inpt.value += element.innerText.replace('=','');
 
-    
+        else {
+           inpt.value = inpt.value.substr(0,inpt.value.length-1);
+        }
        
       
        
