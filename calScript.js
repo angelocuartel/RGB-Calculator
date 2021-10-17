@@ -29,7 +29,14 @@ btns.forEach(element => {
 });
 
 
+function hasRightSideOp(input){
+    const ops = ['+','-','*','/'];
+    return ops.includes(input[input.length-1]);
+}
 
+function hasNoNumber(input){
+    return input == null ;
+}
 
 function removeNum(input){
     return input.length > 0 ? input.substr(0,input.length-1) : input ;
